@@ -11,8 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/test','Test@index' );
+Route::get('/', 'ArticleController@index');
+Route::get('/article/create','ArticleController@create');
+Route::post('/article/store','ArticleController@store');
+Route::get('/article/{id}', 'ArticleController@show');
 
