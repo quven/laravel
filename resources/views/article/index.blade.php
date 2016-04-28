@@ -8,7 +8,16 @@
     @foreach($articles as $list)
         <p><a href="{{action('ArticleController@show',$list->id)}}">{{$list->title}}</a></p>
         <p>{{url('article',$list->id)}}</p>
+        <p>{{$list->publish_at}}</p>
         <p>{{$list->into}}</p>
+
+        @if($list->tags)
+        <ul>
+        @foreach($list->tags as $tag)
+        <li>{{$tag->name}}</li>
+        @endforeach
+        </ul>
+        @endif
         <hr/>
     @endforeach
 @stop

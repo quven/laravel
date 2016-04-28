@@ -11,19 +11,21 @@
     </div>
     <div class="form-group">
         {!! Form::label('into','正文:') !!}
-        {!! Form::textarea('into',null,['class'=>'form-control']) !!}
-        {!! Form::hidden('publish_at',date("Y-m-d H:i:s",time()),['class'=>'form-control']) !!}
+       <p> {!! Form::textarea('into',null,['class'=>'form-control']) !!}</p>
+        <p> {!! Form::input('date','publish_at',date('Y-m-d'),['class'=>'form-control']) !!}</p>
+        <p>
+        @foreach($tags as $k=>$tag)
+            {!! Form::label('into',$tag) !!}
+            {!!Form::checkbox('tags[]',$k)!!}
+        @endforeach
+        </p>
     </div>
     <div class="form-group">
         {!! Form::submit('发表文章',['class'=>'btn btn-success form-control']) !!}
     </div>
     {!! Form::close() !!}
 
-        <ul>
-    @foreach($validator->errors()->all() as $error)
-        <li>{{$error}}</li>
-    @endforeach
-        </ul>
+
 
 
 
