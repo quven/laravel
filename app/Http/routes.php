@@ -11,6 +11,8 @@
 |
 */
 
+Route::controller('post','PostController');
+
 Route::group(['middleware'=>'test'],function(){
         Route::get('/view',function(){
             return "view successful";
