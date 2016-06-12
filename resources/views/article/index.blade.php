@@ -7,6 +7,7 @@
 <p><a href="{{url('article/create')}}">添加文章</a></p>
     @foreach($articles as $list)
         <p><a href="{{action('ArticleController@show',$list->id)}}">{{$list->title}}</a></p>
+        <p><a href="{{action('ArticleController@edit',$list->id)}}">编辑</a></p>
         <p>{{url('article',$list->id)}}</p>
         <p>{{$list->publish_at}}</p>
         <p>{{$list->into}}</p>

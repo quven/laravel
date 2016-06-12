@@ -53,7 +53,21 @@ class ArticleController extends Controller
         return redirect('/');
 
     }
+    public function edit($id){
+        $article = Article::findorFail($id);
 
+        $tags = Tag::lists('name','id');
+       // return $tags;
+
+        return view('article.edit',compact('article','tags'));
+    }
+    public function update(Requests\ArticleRequest $request){
+        $article = Article::find($request->get('id'));
+
+        $article->update($request->except('id'));
+        $article->tags()->sync($request->get('tags'));
+        return redirect('/');
+    }
     /*
     public function saveAll(Request $request){
         $input = $request->all();
