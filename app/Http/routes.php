@@ -10,6 +10,9 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+//request请求
+Route::controller('request','RequestController');
+
 
 Route::controller('post','PostController');
 
