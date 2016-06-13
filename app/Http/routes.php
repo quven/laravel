@@ -13,8 +13,8 @@
 //request请求
 Route::controller('request','RequestController');
 
-
-Route::controller('post','PostController');
+Route::controller('testResponse','ResponseController');
+Route::resource('post','PostController');
 
 Route::group(['middleware'=>'test'],function(){
         Route::get('/view',function(){
@@ -30,17 +30,18 @@ Route::get('/http/refuse',['as'=>'refuse',function(){
 }]);
 
 //CSRF攻击
-Route::get('/testCsrf',function(){
+Route::get('/testCsrf/{id}',['as'=>'csrf',function($id){
     $csrf_field = csrf_field();
     $html = <<<GET
     <form action="/testCsrf" method="post">
+    {$id}
     {$csrf_field}
     <input type="submit" value="test">
     </form>
 GET;
     return $html;
     //return $csrf_field;
-});
+}]);
 Route::post('/testCsrf',function(){
 
     return "successful";

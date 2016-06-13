@@ -13,5 +13,6 @@ class EncryptCookies extends BaseEncrypter
      */
     protected $except = [
         //
+        'xuehao'     //cookie名为xuehao的不加密
     ];
 }
