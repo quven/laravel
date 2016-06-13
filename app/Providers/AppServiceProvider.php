@@ -14,6 +14,23 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
+        view()->share('sitename','xuehao');
+        view()->composer('*',function($view){
+            $view->with('user',array('name'=>'test','avatar'=>'/path/to/test.jpg'));
+        });
+
+        /*
+         * 指定视图匹配
+         *
+         *  view()->composer('hello',function($view){
+                $view->with('user',array('name'=>'test','avatar'=>'/path/to/test.jpg'));
+            });
+
+            view()->composer(['hello','home'],function($view){
+                $view->with('user',array('name'=>'test','avatar'=>'/path/to/test.jpg'));
+            });
+         */
+
     }
 
     /**

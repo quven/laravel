@@ -10,6 +10,8 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+//view视图
+Route::controller('testView','ViewController');
 //request请求
 Route::controller('request','RequestController');
 
@@ -48,11 +50,11 @@ Route::post('/testCsrf',function(){
 });
 
 
-/*
-//Route::get('/', 'ArticleController@index');
+
+Route::get('/', 'ArticleController@index');
 Route::get('/article/create','ArticleController@create');
 Route::post('/article/store','ArticleController@store');
 Route::get('/article/{id}', 'ArticleController@show');
 Route::get('/article/edit/{id}', 'ArticleController@edit');
 Route::post('/article/update', 'ArticleController@update');
-*/
+
